@@ -155,6 +155,10 @@ void BiaoJi(char WanJia[ROWS][COLS], int x, int y)
 	{
 		WanJia[x][y] = '!';
 	}
+	else
+	{
+		printf("此处不能标记\n");
+	}
 }
 
 //取消标记
@@ -163,6 +167,10 @@ void QXBiaoJi(char WanJia[ROWS][COLS], int x, int y)
 	if (WanJia[x][y] == '!')
 	{
 		WanJia[x][y] = '*';
+	}
+	else
+	{
+		printf("此处不能取消标记\n");
 	}
 }
 
@@ -213,6 +221,7 @@ void ZhaoLei(char WanJia[ROWS][COLS], char LeiXinXi[ROWS][COLS], int row, int co
 	while (count < (row*col - N))
 	{
 		PDBiaoJi(WanJia);
+		DaYin(WanJia, ROWS, COLS);
 		printf("请输入你的坐标：");
 		scanf("%d%d", &x, &y);
 		if(x>=1&&y<=ROW&& y >= 1 && y <= COL)
