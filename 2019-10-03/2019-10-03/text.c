@@ -34,11 +34,11 @@ int main()
 	*/
 
 	//约瑟夫环
-	/*SLNode *last;
+	SLNode *last;
 	SList *head;
 	SLNode *cur;
 	SListInit(&head);
-	int m = 50;
+	int m = 10;
 	int n = 3;
 	SListPushFront(&head, m);
 	last = head;
@@ -46,7 +46,7 @@ int main()
 	{
 		SListPushFront(&head, i);
 	}
-	SListPrint(&head);
+	SListPrint(head);
 	last->next = head;
 	cur = last;
 	for (;m > 1;m--)
@@ -60,10 +60,10 @@ int main()
 		printf("%d号出圈\n", cur->next ->value);
 		SListEraseAfter(cur);
 	}
-	printf("%d号胜利", cur->value);*/
+	printf("%d号胜利", cur->value);
 
 	//带头双向循环链表
-	DList dlist;
+	/*DList dlist;
 	DListInit(&dlist);
 	DListPushFront(&dlist, 1);
 	DListPushFront(&dlist, 2);
@@ -86,7 +86,7 @@ int main()
 	DListPrint(&dlist);
 	DListErase(ret);
 	DListPrint(&dlist);
-	DListDestroy(&dlist);
+	DListDestroy(&dlist);*/
 	system("pause");
 	return 0;
 }

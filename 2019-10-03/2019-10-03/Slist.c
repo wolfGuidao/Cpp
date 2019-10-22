@@ -48,7 +48,7 @@ void SListPushBack(SList *list, SLDataType value)
 }
 
 //´òÓ¡
-void SListPrint(const SList *list)
+void SListPrint( SList *list)
 {
 	assert(list != NULL);
 	SLNode *cur = list->first;

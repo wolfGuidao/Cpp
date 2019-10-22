@@ -28,7 +28,7 @@ void SListPushFront(SList *list, SLDataType value);
 void SListPushBack(SList *list, SLDataType value);
 
 //打印
-void SListPrint(const SList *list);
+void SListPrint( SList *list);
 
 //在pos后面插入value
 void SListInsertAfter(SLNode *pos, SLDataType value);
