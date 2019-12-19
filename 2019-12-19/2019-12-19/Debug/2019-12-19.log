@@ -1,0 +1,3 @@
+﻿  main.cpp
+o:\wolf\cpp\2019-12-19\2019-12-19\main.cpp(279): warning C4715: “random”: 不是所有的控件路径都返回值
+  2019-12-19.vcxproj -> O:\wolf\Cpp\2019-12-19\Debug\2019-12-19.exe
