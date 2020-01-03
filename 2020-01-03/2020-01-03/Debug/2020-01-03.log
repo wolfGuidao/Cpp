@@ -1,0 +1,4 @@
+﻿  main.cpp
+o:\wolf\cpp\2020-01-03\2020-01-03\main.cpp(291): warning C4244: “参数”: 从“time_t”转换到“unsigned int”，可能丢失数据
+o:\wolf\cpp\2020-01-03\2020-01-03\main.cpp(602): warning C4244: “参数”: 从“time_t”转换到“unsigned int”，可能丢失数据
+  2020-01-03.vcxproj -> O:\wolf\Cpp\2020-01-03\Debug\2020-01-03.exe
