@@ -1,4 +1,0 @@
-﻿  源.c
-c:\users\mac\source\repos\编程练习09-18\编程练习09-18\源.c(17): warning C4554: “&”: 检查运算符优先级是否存在的可能的错误；使用括号阐明优先级
-c:\users\mac\source\repos\编程练习09-18\编程练习09-18\源.c(23): warning C4013: “system”未定义；假设外部返回 int
-  编程练习09-18.vcxproj -> C:\Users\Mac\source\repos\编程练习09-18\Debug\编程练习09-18.exe

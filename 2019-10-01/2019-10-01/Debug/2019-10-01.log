@@ -1,3 +1,0 @@
-﻿  SeqList.c
-c:\wolf\2019-10-01\2019-10-01\seqlist.c(29): warning C4013: “memcpy”未定义；假设外部返回 int
-  2019-10-01.vcxproj -> C:\wolf\2019-10-01\Debug\2019-10-01.exe
