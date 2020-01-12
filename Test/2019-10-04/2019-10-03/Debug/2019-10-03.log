@@ -1,0 +1,6 @@
+﻿C:\Program Files (x86)\Microsoft Visual Studio\2017\Enterprise\Common7\IDE\VC\VCTargets\Microsoft.CppBuild.targets(391,5): warning MSB8028: 中间目录(Debug\)包含从另一个项目(2019-10-03.vcxproj)共享的文件。   这会导致错误的清除和重新生成行为。
+  SeqList.c
+  text.c
+c:\wolf\2019-10-04\2019-10-03\text.c(46): warning C4133: “函数”: 从“SList *”到“SLNode *”的类型不兼容
+  正在生成代码...
+  2019-10-03.vcxproj -> C:\wolf\2019-10-04\Debug\2019-10-04.exe
