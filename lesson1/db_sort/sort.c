@@ -245,7 +245,7 @@ int QuickSortChild3(int* arr,int begin,int end)
   int pref = begin - 1;
   int cur = begin;
   int key = end;
-  //定义pref，cur 。pref指向cur的前一个
+  //定义pref，cur;pref指向cur的前一个
   while(cur < end)
   {
     //cur去找比key小的元素，如果找到，就把pref++，就交换cur和pref下标所在的元素
@@ -396,7 +396,7 @@ int main()
   //TestHeapSort();
   //TestQuickSort();
   //TestQuickSort1();
-  //TestOP();
-  TestQuickSort2();
+  TestOP();
+  //TestQuickSort2();
   return 0;
 }

@@ -1,2 +1,2 @@
-test:test.cpp 
+test:test.cpp
 	g++ $^ -o $@ -std=c++11

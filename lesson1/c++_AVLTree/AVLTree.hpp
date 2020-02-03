@@ -25,12 +25,17 @@ struct AVLTreeNode
 template<class T>
 class AVLTree
 {
-  typedef AVLTreeNode<T>Node;
+  typedef AVLTreeNode<T> Node;
 
   public:
   AVLTree()
     :_pRoot(nullptr)
   {}
+
+  ~AVLTree()
+  {
+    Destory(_pRoot);
+  }
 
   bool Insert(const T& data)
   {
@@ -330,7 +335,18 @@ class AVLTree
     int leftHight = Hight(pRoot->_pLeft);
     int rightHight = Hight(pRoot->_pRight);
 
-    return leftHight > rightHight ? leftHight+1 : rightHight+1;
+    return leftHight > rightHight ? leftHight + 1 : rightHight + 1;
+  }
+
+  void Destory(Node* pRoot)
+  {
+    if(pRoot)
+    {
+      Destory(pRoot->_pLeft);
+      Destory(pRoot->_pRight);
+      delete pRoot;
+      pRoot = nullptr;
+    }
   }
 
   private:
