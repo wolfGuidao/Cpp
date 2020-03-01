@@ -1,7 +1,0 @@
-﻿  main.cpp
-c:\wolf\2019-10-25\2019-10-25\main.cpp(7): error C3867: “type_info::name”: 非标准语法；请使用 "&" 来创建指向成员的指针
-  c:\wolf\2019-10-25\2019-10-25\main.cpp(12): note: 参见对正在编译的函数 模板 实例化“T Add<int>(T,T)”的引用
-          with
-          [
-              T=int
-          ]
