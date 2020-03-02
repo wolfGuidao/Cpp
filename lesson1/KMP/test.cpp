@@ -2,8 +2,8 @@
 
 int TestKmp()
 {
-  KMP kk("aabbcc");
-  return kk.Search("aabbcdaabbcabbcaabbcc");
+  KMP kk("abcd.");
+  return kk.Search("aabbcdaabbcabcd.AAbbcc");
 }
 
 int main()
