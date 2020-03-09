@@ -1,47 +1,55 @@
 #pragma once
-#include <iostream>
 #include<string>
 
 const int PRIMECOUNT = 28;
-const size_t primeList[PRIMECOUNT] = 
-{
+const size_t primeList[PRIMECOUNT] = {
   53ul, 97ul, 193ul, 389ul, 769ul,
   1543ul, 3079ul, 6151ul, 12289ul, 24593ul,
   49157ul, 98317ul, 196613ul, 393241ul, 786433ul,
   1572869ul, 3145739ul, 6291469ul, 12582917ul, 25165843ul,
   50331653ul, 100663319ul, 201326611ul, 402653189ul, 805306457ul,
   1610612741ul, 3221225473ul, 4294967291ul
+
 };
 
-size_t GetNextPrime(size_t capacity);
+size_t GetNextPrime(size_t capacity) 
+{
+  size_t i = 0;
+  for (; i < PRIMECOUNT; ++i)
+  {
+    if (primeList[i] > capacity)
+      return primeList[i];
+
+  }
+  return primeList[PRIMECOUNT - 1];
+
+}
 
 class DFInt 
 {
   public:
-    size_t operator()(const size_t& val) 
+    size_t operator()(const int& data) 
     {
-      return val;
+      return data;
     }
-
 };
 
 class DFStr 
 {
   public:
-    size_t operator()(const std::string& s) 
+    size_t operator()(const std::string& data) 
     {
-      return BKDRHash(s.c_str());
+      return AtoI(data.c_str());
     }
-
   private:
-    size_t BKDRHash(const char* str) 
+    size_t AtoI(const char* ch) 
     {
       size_t ret = 0;
-      while (*str != '\0') 
+      while (size_t t = (size_t)*ch++) 
       {
-        ret = ret * 131 + *str;
-        ++str;
+        ret = ret * 131 + t;
       }
       return ret;
     }
 };
+

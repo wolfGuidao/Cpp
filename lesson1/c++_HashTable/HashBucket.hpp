@@ -14,10 +14,12 @@ struct HashNode
   T val_;
 };
 
+
 template<class T, class DF = DFInt>
 class HashBucket 
 {
   typedef HashNode<T> Node;
+
   public:
   HashBucket(size_t capacity = 5)
     :size_(0)
@@ -31,36 +33,53 @@ class HashBucket
   {
     CheckCapacity();    //判断是否扩容
 
+    //通过哈希函数计算哈希地址
     size_t addr = HashAddr(val);
+
+    //查找哈希桶的哈希链表中是否存在相同的元素，保证插入元素唯一
     Node* ptr = vec_[addr];
     while (ptr) 
     {
       if (ptr->val_ == val)
         return false;
+
       ptr = ptr->next_;
     }
+
+    //new出一个节点，连接在Hash链的头部 
     ptr = new Node(val);
     ptr->next_ = vec_[addr];
+
+    //更新相同哈希地址处的哈希节点的地址
     vec_[addr] = ptr;
     ++size_;
+
     return true;
   }
 
   bool InsertEqual(const T& val) 
-  {   //可插入重复�
+  {   
+    //可插入重复
     CheckCapacity();    //判断是否扩容
 
+    //直接连接在哈希链的头部
     size_t addr = HashAddr(val);
     Node* ptr =  new Node(val);
     ptr->next_ = vec_[addr];
+
+    //更新相同哈希地址处的哈希链的地址
     vec_[addr] = ptr;
     ++size_;
     return true;
   }
 
+    //删除哈希桶中的哈希链中的元素
   bool eraseUnique(const T& val) 
   {
+    //通过元素计算其在哈希桶中的哈希链的地址
     size_t addr = HashAddr(val);
+
+    //删除
     Node *ptr = vec_[addr];
     Node *pre = nullptr;
     while (ptr) 
@@ -71,6 +90,7 @@ class HashBucket
           vec_[addr] = ptr->next_;
         else
           pre->next_ = ptr->next_;
+
         delete ptr;
         --size_;
         return true;
@@ -84,8 +104,9 @@ class HashBucket
     return false;
   }
 
+     //删除全部
   bool eraseEqual(const T& val) 
-  {   //删除全部
+  {   
     size_t addr = HashAddr(val);
     Node *ptr = vec_[addr];
     Node *pre = nullptr;
@@ -116,8 +137,10 @@ class HashBucket
     return true;
   }
 
+  //查找元素
   Node* find(const T& val) const
   {
+    //计算哈希地址
     size_t addr = HashAddr(val);
 
     Node *ptr = vec_[addr];
@@ -125,6 +148,7 @@ class HashBucket
     {
       if (ptr->val_ == val)
         return ptr;
+
       ptr = ptr->next_;
     }
     return nullptr;
@@ -139,6 +163,7 @@ class HashBucket
   {
     return 0 == size_;
   }
+
   void printHashBucket() 
   {
     for (size_t i = 0; i < vec_.size(); ++i) 
@@ -153,6 +178,7 @@ class HashBucket
       std::cout << "NULL" << std::endl;
     }
   }
+
   private:
   size_t HashAddr(const T& val) const
   {

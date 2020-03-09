@@ -3,45 +3,53 @@
 #include<iostream>
 using namespace std;
 
-void TestHashTable1() {
+void TestHashTable1() 
+{
   int array[] = { 21,67,112  };
+
   HashTable<int> ht;
   for (auto e : array)
     ht.Insert(e);
+
   ht.Erase(67);
   cout << ht.Size() << endl;
+
   ht.Insert(87);
   ht.Insert(77);
   cout << ht.Size() << endl;
-  if (ht.Find(87) != -1) {
+
+  if (ht.Find(87) != -1) 
+  {
     cout << "87 is in hashTable" << endl;
 
   }
-  else {
+  else 
+  {
     cout << "87 is not in hashtable" << endl;
-
   }
+
   ht.Erase(67);
-  if (ht.Find(67) != -1) {
+  if (ht.Find(67) != -1) 
+  {
     cout << "67 is in hashTable" << endl;
-
   }
-  else {
+  else 
+  {
     cout << "67 is not in hashtable" << endl;
-
   }
-  if (ht.Find(87) != -1) {
+
+  if (ht.Find(87) != -1) 
+  {
     cout << "87 is in hashTable" << endl;
-
   }
-  else {
+  else 
+  {
     cout << "87 is not in hashtable" << endl;
-
   }
-
 }
 
-void TestHashTable2() {
+void TestHashTable2() 
+{
   HashTable<string, DFStr, false> ht;
   ht.Insert("1111");
   ht.Insert("2222");
@@ -51,14 +59,14 @@ void TestHashTable2() {
   ht.Insert("2322");
   ht.Insert("3233");
   ht.Insert("4344");
-
 }
-void TestHashBucket1() {
+void TestHashBucket1() 
+{
   HashBucket<int> ht;
   int arr[] = { 1,4,7,9,6,5  };
-  for (auto e : arr) {
+  for (auto e : arr) 
+  {
     ht.InsertUnique(e);
-
   }
   cout << ht.size() << endl;
   ht.printHashBucket();
@@ -75,15 +83,14 @@ void TestHashBucket1() {
 
   cout << ht.size() << endl;
   ht.printHashBucket();
-
 }
 
-void TestHashBucket2() {
+void TestHashBucket2() 
+{
   HashBucket<int> ht;
   int arr[] = { 1,1,1,2,2,3  };
   for (auto e : arr) {
     ht.InsertEqual(e);
-
   }
   cout << ht.size() << endl;
   ht.printHashBucket();
@@ -100,15 +107,13 @@ void TestHashBucket2() {
 
   cout << ht.size() << endl;
   ht.printHashBucket();
-
 }
 
-int main() {
-  //TestHashTable1();
+int main() 
+{
+  TestHashTable1();
   //TestHashTable2();
   //TestHashBucket1();
-  TestHashBucket2();
-
+  //TestHashBucket2();
   return 0;
-  //
 }
