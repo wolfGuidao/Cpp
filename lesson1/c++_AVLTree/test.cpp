@@ -1,4 +1,5 @@
 #include "AVLTree.hpp"
+using namespace std;
 
 void TestAVLTree()
 {

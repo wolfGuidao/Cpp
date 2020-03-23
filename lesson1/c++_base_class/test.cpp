@@ -96,7 +96,7 @@ class Time
 class Date
 {
   friend ostream& operator<<(ostream& _cout,const Date& d);
-  friend istream& operator>>(istream& _cin,const Date& d);
+  friend istream& operator>>(istream& _cin, Date& d);
 
   friend void Getcount(Date& d);
   public:
@@ -127,13 +127,13 @@ ostream& operator<<(ostream& _cout,const Date& d)
   return _cout;
 }
 
-//istream& operator>>(istream& _cin,const Date& d)
-//{
-//  _cin>>d._year;
-//  _cin>>d._month;
-//  _cin>>d._day;
-//  return _cin;
-//}
+istream& operator>>(istream& _cin, Date& d)
+{
+  _cin>>d._year;
+  _cin>>d._month;
+  _cin>>d._day;
+  return _cin;
+}
 
 void Getcount(Date& d)//友元函数也不能用cosnt修饰
 {
@@ -144,7 +144,7 @@ void Getcount(Date& d)//友元函数也不能用cosnt修饰
 void func3()
 {
   Date d(2020,1,2);
-  //cin>>d;
+  cin>>d;
   cout<<d;
   Getcount(d);
   d.SetTime(24,11,11);
