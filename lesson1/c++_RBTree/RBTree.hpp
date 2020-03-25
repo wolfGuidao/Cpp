@@ -1,4 +1,5 @@
 #pragma once
+#include <iostream>
 
 enum Color {
   RED,
@@ -44,13 +45,17 @@ class RBTree {
       PNode pCur = pRoot;
       while (pCur) {
         pParent = pCur;
+
         if (data < pCur->_data)
           pCur = pCur->_pLeft;
+
         else if (data > pCur->_data)
           pCur = pCur->_pRight;
+
         else
           return false;
       }
+
       pCur = new Node(data);
       if (data < pParent->_data) {
         pParent->_pLeft = pCur;
@@ -61,13 +66,13 @@ class RBTree {
         pCur->_pParent = pParent;
       }
       //检测新节点插入后。红黑树的性质是否遭到破坏
-      while (pParent&&RED == pParent->_color) {
+      while (pParent && RED == pParent->_color) {
         PNode pGrand = pParent->_pParent;
         //pParent在pGrand左侧的情况
         if (pParent == pGrand->_pLeft) {
           PNode unclue = pGrand->_pRight;
           //情况一
-          if (unclue&&RED == unclue->_color) {
+          if (unclue && RED == unclue->_color) {
             pParent->_color = BLACK;
             unclue->_color = BLACK;
             pGrand->_color = RED;
@@ -77,8 +82,10 @@ class RBTree {
           }
           else {
             //情况三
-            if (pParent->_pRight==pCur) {
+            if (pParent->_pRight == pCur) {
               RotateLeft(pParent);
+
+              //旋转后两指针位置发生改变，需要交换回来
               swap(pParent, pCur);
             }
             //情况二
