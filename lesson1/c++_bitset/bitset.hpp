@@ -4,7 +4,7 @@
 #include<vector>
 using namespace std;
 
-namespace LMJian {
+namespace wolf {
   template<size_t N>
     class BitSet {
       public:
