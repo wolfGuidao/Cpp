@@ -1,8 +1,15 @@
 #include "RBTree.hpp"
+#include <bits/stdc++.h>
+using namespace std;
 
 int main()
 {
-  RBTree<int> rb = {3,1,33,57,78,3,7,8};
+    RBTree<int> rb;
+    rb.Insert(5);
+    rb.Insert(8);
+    rb.Insert(16);
+    rb.Insert(0);
+    cout<<rb.IsValidRBTree()<<endl;;
 
-  return 0;
+    return 0;
 }
