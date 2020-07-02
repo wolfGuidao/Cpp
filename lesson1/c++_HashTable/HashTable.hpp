@@ -29,7 +29,6 @@ class HashTable
     {
     //vec_.resize(GetNextPrime(capacity));
         vec_.resize(capacity);
-    //      
     }
 
     //向哈希表中插入元素
