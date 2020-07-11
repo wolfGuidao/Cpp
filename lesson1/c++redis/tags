@@ -1,0 +1,31 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.8	//
+M_CONNECT_FAIL	redis_handler.h	/^    M_CONNECT_FAIL = -1, \/\/连接redis失败$/;"	e	enum:__anon1
+M_CONTEXT_ERROR	redis_handler.h	/^    M_CONTEXT_ERROR = -2, \/\/RedisContext返回错误$/;"	e	enum:__anon1
+M_EXE_COMMAND_ERROR	redis_handler.h	/^    M_EXE_COMMAND_ERROR = -4 \/\/redis命令执行错误$/;"	e	enum:__anon1
+M_REDIS_OK	redis_handler.h	/^    M_REDIS_OK = 0, \/\/执行成功$/;"	e	enum:__anon1
+M_REPLY_ERROR	redis_handler.h	/^    M_REPLY_ERROR = -3, \/\/redisReply错误$/;"	e	enum:__anon1
+RedisHandler	redis_handler.cpp	/^RedisHandler::RedisHandler()$/;"	f	class:RedisHandler
+RedisHandler	redis_handler.h	/^class RedisHandler$/;"	c
+__REDIS_HANDLER_H__	redis_handler.h	9;"	d
+connect	redis_handler.cpp	/^int RedisHandler::connect(const string &addr = "127.0.0.1", int port = 6379, const string &pwd) {$/;"	f	class:RedisHandler
+connectAuth	redis_handler.cpp	/^int RedisHandler::connectAuth(const string &psw)$/;"	f	class:RedisHandler
+delKey	redis_handler.cpp	/^int RedisHandler::delKey(const string &key)$/;"	f	class:RedisHandler
+disConnect	redis_handler.cpp	/^int RedisHandler::disConnect()$/;"	f	class:RedisHandler
+error_msg	redis_handler.h	/^        string error_msg; \/\/错误信息$/;"	m	class:RedisHandler
+getErrorMsg	redis_handler.cpp	/^string RedisHandler::getErrorMsg()$/;"	f	class:RedisHandler
+getValue	redis_handler.cpp	/^int RedisHandler::getValue(const string &key, string &value)$/;"	f	class:RedisHandler
+handleReply	redis_handler.cpp	/^int RedisHandler::handleReply(void* value, redisReply*** array)$/;"	f	class:RedisHandler
+m_addr	redis_handler.h	/^        string m_addr; \/\/IP地址$/;"	m	class:RedisHandler
+m_port	redis_handler.h	/^        int m_port; \/\/端口号$/;"	m	class:RedisHandler
+m_pwd	redis_handler.h	/^        string m_pwd; \/\/密码$/;"	m	class:RedisHandler
+main	main.cpp	/^int main()$/;"	f
+pm_rct	redis_handler.h	/^        redisContext* pm_rct; \/\/redis结构体$/;"	m	class:RedisHandler
+pm_rr	redis_handler.h	/^        redisReply* pm_rr; \/\/返回结构体$/;"	m	class:RedisHandler
+printAll	redis_handler.cpp	/^int RedisHandler::printAll()$/;"	f	class:RedisHandler
+setValue	redis_handler.cpp	/^int RedisHandler::setValue(const string &key, const string &value)$/;"	f	class:RedisHandler
+~RedisHandler	redis_handler.cpp	/^RedisHandler::~RedisHandler()$/;"	f	class:RedisHandler
