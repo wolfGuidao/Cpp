@@ -13,7 +13,7 @@ class UnionFind
         //找根
         int FindRoot(int x)
         {                              
-            while(_arr[x] > 0)
+            while(_arr[x] >= 0)
             {                              
                 x = _arr[x];               
             }
