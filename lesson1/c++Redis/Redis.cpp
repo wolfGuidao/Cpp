@@ -1,17 +1,17 @@
 /*************************************************************************
-  > File Name: redis_handler.cpp
-  > Author: wolf
-  > Mail: wolfguidao@163.com 
-  > Created Time: 2020年07月11日 星期六 23时28分05秒
- ************************************************************************/
+# File Name: Redis.cpp
+# Author: wolf
+# Mail: wolfguidao@163.com 
+# Created Time: 2020年07月14日 星期二 20时17分57秒
+ *************************************************************************/
 
-#include "redis_handler.h"
+#include "Redis.h"
 #include <string>
 #include <cstring>
 #include <iostream>
 using namespace std;
 
-RedisHandler::RedisHandler()
+Redis::Redis()
 {
     m_addr = "";
     m_port = 0;
@@ -21,7 +21,7 @@ RedisHandler::RedisHandler()
     error_msg = "";
 }
 
-RedisHandler::~RedisHandler()
+Redis::~Redis()
 {
     disConnect();
     pm_rct = NULL;
@@ -33,7 +33,7 @@ RedisHandler::~RedisHandler()
 addr: 地址，port：端口号，pwd：密码
 成功返回M_REDIS_OK，失败返回M_CONNECT_FAIL
 */
-int RedisHandler::connect(const string &addr = "127.0.0.1", int port = 6379, const string &pwd) {
+int Redis::connect(const string &addr = "127.0.0.1", int port = 6379, const string &pwd) {
     m_addr = addr;
     m_port = port;
     m_pwd = pwd;
@@ -57,7 +57,7 @@ int RedisHandler::connect(const string &addr = "127.0.0.1", int port = 6379, con
 /*
    断开redis连接
    */
-int RedisHandler::disConnect()
+int Redis::disConnect()
 {
     freeReplyObject(pm_rr);
     redisFree(pm_rct);
@@ -69,7 +69,7 @@ int RedisHandler::disConnect()
    key：键，value：值
    成功返回M_REDIS_OK，失败返回<0
    */
-int RedisHandler::setValue(const string &key, const string &value)
+int Redis::setValue(const string &key, const string &value)
 {
     string cmd = "set " + key + " " + value;
 
@@ -83,7 +83,7 @@ int RedisHandler::setValue(const string &key, const string &value)
    key：键，value：值引用
    成功返回M_REDIS_OK，失败返回<0
    */
-int RedisHandler::getValue(const string &key, string &value)
+int Redis::getValue(const string &key, string &value)
 {
     string cmd = "get " + key;
 
@@ -98,7 +98,7 @@ int RedisHandler::getValue(const string &key, string &value)
    key：键
    成功返回影响的行数（可能为0），失败返回<0
    */
-int RedisHandler::delKey(const string &key)
+int Redis::delKey(const string &key)
 {
     string cmd = "del " + key;
 
@@ -115,7 +115,7 @@ int RedisHandler::delKey(const string &key)
 /*
    打印所有键值对到屏幕上
    */
-int RedisHandler::printAll()
+int Redis::printAll()
 {
     string cmd = "keys *";
 
@@ -137,7 +137,7 @@ int RedisHandler::printAll()
 /*
    返回错误信息
    */
-string RedisHandler::getErrorMsg()
+string Redis::getErrorMsg()
 {
     return error_msg;
 }
@@ -147,7 +147,7 @@ string RedisHandler::getErrorMsg()
    psw：登录密码
    成功返回M_REDIS_OK，失败返回<0
    */
-int RedisHandler::connectAuth(const string &psw)
+int Redis::connectAuth(const string &psw)
 {
     string cmd = "auth " + psw;
 
@@ -162,7 +162,7 @@ int RedisHandler::connectAuth(const string &psw)
    array：数组指针，用于保存redis返回的数组
    成功返回M_REDIS_OK，失败返回<0
    */
-int RedisHandler::handleReply(void* value, redisReply*** array)
+int Redis::handleReply(void* value, redisReply*** array)
 {
     if (pm_rct->err)
     {
@@ -207,3 +207,4 @@ int RedisHandler::handleReply(void* value, redisReply*** array)
             return M_EXE_COMMAND_ERROR;
     }
 }
+

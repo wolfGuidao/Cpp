@@ -1,15 +1,14 @@
 /*************************************************************************
-  > File Name: redis_handler.h
+  > File Name: Redis.hpp
   > Author: wolf
   > Mail: wolfguidao@163.com 
   > Created Time: 2020年07月11日 星期六 23时27分28秒
  ************************************************************************/
-
-#ifndef __REDIS_HANDLER_H__
-#define __REDIS_HANDLER_H__
-
+#pragma once
 #include <hiredis/hiredis.h>
+#include <iostream>
 #include <string>
+#include "until.hpp"
 using namespace std;
 
 enum
@@ -22,11 +21,11 @@ enum
 };
 
 
-class RedisHandler
+class Redis
 {
     public:
-        RedisHandler();
-        ~RedisHandler();
+        Redis();
+        ~Redis();
         int connect(const string &addr, int port, const string &pwd = ""); //连接redis数据库：addr：IP地址，port：端口号，pwd：密码(默认为空)
         int disConnect(); //断开连接
 
@@ -49,4 +48,3 @@ class RedisHandler
 };
 
 
-#endif
