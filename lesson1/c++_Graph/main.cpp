@@ -9,10 +9,10 @@
 int main()
 {
     string a[4] = {"a","b","c","d"};
-    //matrix::Graph<string,int> graph(a,4);
-    linktable::Graph<string,int> graph(a,4);
+    matrix::Graph<string,int> graph(a,4);
+    //linktable::Graph<string,int> graph(a,4);
     graph.AddEdge("a","b",999);
     graph.AddEdge("c","d",666);
-    graph.Print();
+    graph.DFS("a");
     return 0;
 }

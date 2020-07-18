@@ -52,6 +52,22 @@ namespace matrix
                     }
                 }
 
+                void DFS(const V& src)
+                {
+                    int srcIndex;
+                    try 
+                    {
+                        srcIndex = GetVertexsIndex(src);
+                    }
+                    catch(string ex)
+                    {
+                        cout<<ex<<endl;
+                        exit(1);
+                    }
+
+                    vector<bool> visted(_vertexs.size(),false);
+                    _DFS(srcIndex,visted);
+                }
 
                 void Print()
                 {
@@ -67,6 +83,19 @@ namespace matrix
                 }
 
             private:
+                void _DFS(int srcIndex,vector<bool> visted)
+                {
+                    visted[srcIndex] = true;
+                    cout<<srcIndex<<" : "<<_vertexs[srcIndex]<<" -> ";
+                    for(int i = 0;i < _edge[srcIndex].size();i++)
+                    {
+                        if(_edge[srcIndex][i] != W() && visted[i] == false)
+                        {
+                            _DFS(i,visted);
+                        }
+                    }
+                }
+
                 int GetVertexsIndex(const V& v)
                 {
                     //for(size_t i = 0;i < _vertexs.size();i++)
