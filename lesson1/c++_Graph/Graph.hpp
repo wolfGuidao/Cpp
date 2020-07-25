@@ -7,6 +7,7 @@
 #pragma once
 #include <iostream>
 #include <vector>
+#include <queue>
 #include <string>
 #include <unordered_map>
 using namespace std;
@@ -67,6 +68,45 @@ namespace matrix
 
                     vector<bool> visted(_vertexs.size(),false);
                     _DFS(srcIndex,visted);
+                    cout<<endl;
+                }
+
+                void BFS(const V& src)
+                {
+                    int srcIndex;
+                    try 
+                    {
+                        srcIndex = GetVertexsIndex(src);
+                    }
+                    catch(string ex)
+                    {
+                        cout<<ex<<endl;
+                        exit(1);
+                    }
+
+                    vector<bool> visted(_vertexs.size(),false);
+
+                    queue<int> q;
+
+                    q.push(srcIndex);
+                    visted[srcIndex] = true;
+
+                    while(!q.empty())
+                    {
+                        int front = q.front();
+                        q.pop();
+                        cout<<front<<" : "<<_vertexs[front]<<" ";
+
+                        for(int i = 0;i < _edge[front].size();i++)
+                        {
+                            if(_edge[front][i] != W() && visted[i] == false)
+                            {
+                                q.push(i);
+                                visted[i] = true;
+                            }
+                        }
+                    }
+                    cout<<endl;
                 }
 
                 void Print()

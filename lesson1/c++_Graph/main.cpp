@@ -14,5 +14,6 @@ int main()
     graph.AddEdge("a","b",999);
     graph.AddEdge("c","d",666);
     graph.DFS("a");
+    graph.BFS("a");
     return 0;
 }
